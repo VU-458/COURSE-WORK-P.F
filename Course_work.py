@@ -3,6 +3,7 @@
 FILE = "study_log.txt"
 
 
+# classify a study session based on its duration
 def classify_session(duration):
     if duration < 30:
         return "Short"
@@ -17,6 +18,7 @@ def add_session(sessions):
     topic = input("Topic: ")
     date = input("Date/Day: ")
 
+    # ask until user enters a valid positive duration
     while True:
         try:
             duration = float(input("Duration in minutes: "))
@@ -91,6 +93,8 @@ def study_statistics(sessions):
     for subject, minutes in subjects.items():
         print(subject, ":", round(minutes / 60, 2))
 
+    # find the single study session with the lingest duration
+    # find the subject withe the smallest total study time
     weakest = min(subjects, key=subjects.get)
     longest = max(sessions, key=lambda s: s["duration"])
 
